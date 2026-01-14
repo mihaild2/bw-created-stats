@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browswave Created Stats</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h2>Browswave Activity</h2>
+      <button id="refreshUsersBtn" class="icon-btn" title="Refresh User List">↻</button>
+    </header>
+
+    <div class="controls">
+      <div class="date-group">
+        <label>Start Date
+          <input type="date" id="startDate">
+        </label>
+        <label>End Date
+          <input type="date" id="endDate">
+        </label>
+      </div>
+
+      <div class="options">
+        <label class="checkbox-container">
+          <input type="checkbox" id="excludeMulti">
+          <span class="checkmark"></span>
+          Exclude Multi Packages
+        </label>
+      </div>
+    </div>
+
+    <div class="user-section">
+      <h3>Select Users <span id="selectedCount">(0)</span></h3>
+      <div class="user-list" id="userList">
+        <!-- Users injected here -->
+        <div class="loading-spinner">Loading users...</div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button id="runFilterBtn" class="primary-btn">Run Filtration</button>
+      <div id="progressContainer" class="hidden">
+        <div class="progress-bar"><div class="fill" id="progressFill"></div></div>
+        <span id="progressText">0/0</span>
+      </div>
+    </div>
+
+    <div id="resultsSection" class="hidden">
+      <div class="results-header">
+        <h3>Results</h3>
+        <button id="copyBtn" class="secondary-btn">Copy to Excel</button>
+      </div>
+      <div class="table-wrapper">
+        <table id="resultsTable">
+          <thead>
+            <tr>
+              <th data-sort="email">User</th>
+              <th data-sort="count" class="sort-active desc">Count <span class="arrow">▼</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Rows injected here -->
+          </tbody>
+        </table>
+      </div>
+      <div class="stats-footer">
+        Median: <span id="medianDisplay">0</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
